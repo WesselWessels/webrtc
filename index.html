@@ -43,7 +43,16 @@
 
         step3(call);
       });
+      
+     
+       $('#callto-id').keyup(function(e){
+          if(e.keyCode == 13)
+          {
+              var call = peer.call($('#callto-id').val(), window.localStream);
 
+              step3(call);
+          }
+      }); 
       $('#end-call').click(function(){
         window.existingCall.close();
         step2();
